@@ -1,0 +1,19 @@
+# Ignore the node_modules directory, as it will be installed inside the container
+node_modules
+
+# Ignore the production build folder, it's not needed for development
+build
+
+# Ignore git files
+.git
+.gitignore
+
+# Ignore Docker files
+Dockerfile
+.dockerignore
+
+# Ignore CI/CD configuration
+.gitlab-ci.yml
+
+# Ignore local environment variables
+.env.local
