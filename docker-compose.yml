@@ -1,0 +1,51 @@
+# docker-compose.yml (Updated with a service for E2E testing)
+
+services:
+  # 1. The Frontend and Reverse Proxy Service
+  web-frontend:
+    build:
+      context: ./web-frontend
+      dockerfile: Dockerfile
+    container_name: web-frontend-proxy
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  # 2. The Web Backend Service
+  backend:
+    build:
+      context: ./web-backend
+      dockerfile: Dockerfile
+    container_name: python-backend
+    volumes:
+      - ./web-backend/app:/app/app
+      - ./web-backend/tests:/app/tests
+      - ./model-backend:/model-backend
+
+  # 3. Service for Model Training and Testing
+  model-trainer:
+    build:
+      context: ./model-backend
+      dockerfile: Dockerfile
+    container_name: model-trainer
+
+  # 4. NEW: Service for running Cypress E2E tests
+  # This service runs the Cypress tests in headless mode.
+  cypress:
+    # Use an official Cypress image that includes all necessary dependencies.
+    image: cypress/included:13.13.1
+    container_name: cypress-runner
+    # Depend on the frontend and backend to ensure the app is ready before testing.
+    depends_on:
+      - web-frontend
+      - backend
+    # Mount the web-frontend directory to give Cypress access to its config and tests.
+    volumes:
+      - ./web-frontend:/e2e
+    working_dir: /e2e
+    # Set the CYPRESS_BASE_URL environment variable for use in the CI environment.
+    # The value 'http://web-frontend' allows Cypress to find the web-frontend service
+    # on Docker's internal network.
+    environment:
+      - CYPRESS_BASE_URL=http://web-frontend
