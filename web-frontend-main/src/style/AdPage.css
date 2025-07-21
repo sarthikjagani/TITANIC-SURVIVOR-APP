@@ -1,0 +1,98 @@
+/*
+ * Styles for the AdPage component
+ * This version is themed to match the styles in App.css
+ */
+
+.ad-container {
+  /*
+   * We'll model this container after your form styles for consistency.
+   * background-color, border, border-radius, and box-shadow are from your 'form' style.
+   * The left border uses your gold accent color for a bit of flair.
+  */
+  background-color: #f9f9f9; /* */
+  border: 1px solid #ddd; /* */
+  border-radius: 8px; /* */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* */
+  border-left: 5px solid #bfa156; /* Use theme accent color */
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.ad-title {
+  /* Matches your h2 style */
+  color: #1a2d40; /* */
+  font-size: 1.8em; /* */
+  margin-bottom: 1rem;
+}
+
+.ad-subtitle {
+  /* A slightly less prominent style than the main title */
+  color: #333; /* */
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+}
+
+.ad-description {
+   /* Matches your p style */
+  line-height: 1.5; /* */
+  margin-bottom: 1.5rem;
+}
+
+.ad-features-title {
+  color: #1a2d40; /* */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.ad-features-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  display: inline-block;
+  text-align: left;
+}
+
+.ad-features-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Using the gold accent color for the checkmarks */
+.ad-features-list li::before {
+  content: '✓';
+  color: #bfa156; /* */
+  font-weight: bold;
+  display: inline-block;
+  width: 1.5em;
+  margin-left: -1.5em;
+}
+
+/*
+ * This button is styled to look exactly like your main `button[type="submit"]`.
+ * This is key for a consistent user experience.
+ */
+.ad-button {
+  background-color: #1a2d40; /* */
+  color: white; /* */
+  padding: 12px 25px; /* */
+  border: none; /* */
+  border-radius: 4px; /* */
+  font-family: inherit;;
+  font-size: 1.1em; /* */
+  font-weight: bold; /* */
+  cursor: pointer; /* */
+  transition: background-color 0.3s ease, transform 0.1s ease; /* */
+  border-bottom: 3px solid #0d1620; /* */
+  display: inline-block; /* Allows button to size to its content */
+  width: auto;
+}
+
+.ad-button:hover {
+  background-color: #2c4a6b; /* */
+}
+
+.ad-button:active {
+  transform: translateY(1px); /* */
+  border-bottom-width: 2px; /* */
+}

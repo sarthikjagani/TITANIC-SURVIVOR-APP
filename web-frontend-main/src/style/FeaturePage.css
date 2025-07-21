@@ -1,0 +1,233 @@
+/* src/style/FeaturePage.css */
+.feature-page-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px 30px;
+  background-color: #ffffff; /* Changed from #f9f9f9 for a cleaner look */
+  border-radius: 10px; /* Slightly larger radius */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  text-align: center;
+}
+
+.feature-page-container h1 {
+  color: #2c3e50; /* Darker, more prominent title */
+  margin-bottom: 15px;
+  font-size: 1.8em; /* Slightly larger font */
+}
+
+.feature-page-container p {
+  color: #555e68; /* Slightly darker paragraph text */
+  margin-bottom: 30px; /* More space after paragraph */
+  font-size: 1em; /* Standardized font size */
+  line-height: 1.7; /* Improved line height */
+}
+
+.models-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+  text-align: left;
+}
+
+.model-item {
+  background-color: #f8f9fa; /* Light background for items */
+  border: 1px solid #dee2e6; /* Softer border */
+  border-radius: 6px; /* Rounded corners for items */
+  padding: 15px 20px; /* More padding */
+  margin-bottom: 12px; /* Slightly more space between items */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow for items */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.model-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.07);
+}
+
+
+.model-item span {
+  font-size: 1.05em; /* Slightly larger model name */
+  color: #343a40; /* Darker text for model name */
+  font-weight: 500; /* Medium weight */
+}
+
+.delete-btn, .reset-models-btn {
+  padding: 9px 18px; /* Increased padding */
+  font-size: 0.95em; /* Slightly larger button text */
+  font-weight: 500; /* Medium weight text */
+  border-radius: 5px; /* Consistent border radius */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border: none; /* Removed border for a flatter look */
+}
+
+.delete-btn {
+  background-color: #e74c3c; /* Red for delete */
+  color: white;
+}
+.delete-btn:hover {
+  background-color: #c0392b; /* Darker red on hover */
+  transform: translateY(-1px);
+}
+
+.reset-models-btn {
+  background-color: #3498db; /* Blue for reset */
+  color: white;
+  margin-top: 30px; /* More space above reset button */
+  padding: 12px 25px; /* Larger padding for primary action */
+  font-size: 1em;
+}
+.reset-models-btn:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+  transform: translateY(-1px);
+}
+
+
+/* --- Styles for Training Section --- */
+
+/* This new rule ensures all form elements inherit the body's font family */
+.training-section input,
+.training-section button,
+.training-section label,
+.training-section select, /* --- ADDED THIS --- */
+.training-section h2 {
+    font-family: inherit;
+}
+
+.training-section {
+  background-color: #fdfdfd;
+  border: 1px solid #e9e9e9;
+  border-radius: 8px;
+  padding: 25px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.training-section h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #333;
+  font-size: 1.5em;
+  font-weight: 600; /* Adjusted for better appearance with monospace */
+}
+
+.form-group-textfield, .form-group-features {
+  margin-bottom: 20px;
+}
+
+.form-group-textfield label, .form-group-features > label {
+  display: block;
+  font-weight: bold; /* Changed from 600 for consistency */
+  color: #34495e;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+/* --- NEW RULE TO STYLE ALL INPUTS AND SELECTS CONSISTENTLY --- */
+.form-group-textfield input[type="text"],
+.form-group-textfield select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background-color: #fff; /* Explicitly set background */
+  height: 42px; /* Set a consistent height */
+}
+
+.form-group-textfield input[type="text"]:focus,
+.form-group-textfield select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.features-checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.checkbox-item label {
+  font-size: 1em;
+  color: #555;
+  cursor: pointer;
+  font-weight: normal; /* Labels for checkboxes shouldn't be bold */
+}
+
+.train-btn {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1.1em;
+  font-weight: bold; /* Changed from 600 for consistency */
+  background-color: #27ae60; /* Green for training */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.train-btn:hover:not(:disabled) {
+  background-color: #229954;
+}
+
+.train-btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.feedback-message {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 5px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.feedback-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.feedback-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.section-divider {
+  border: none;
+  border-top: 2px solid #eee;
+  margin: 40px auto;
+}
+
+.management-section h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.5em;
+}

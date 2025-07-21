@@ -1,0 +1,126 @@
+/* src/style/DashboardPage.css */
+
+/* New wrapper to act as a positioning context for the button */
+.dashboard-page-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* New button style for page-corner absolute positioning */
+.clear-all-btn-page-corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  z-index: 10;
+}
+
+.clear-all-btn-page-corner:hover {
+  background-color: #c0392b;
+}
+
+/* Main dashboard container for the white box */
+.dashboard-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Message for when no history exists */
+.no-history-message {
+  text-align: center;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  color: #555;
+}
+
+/* History List Styles */
+.history-list {
+  list-style: none;
+  padding: 0;
+}
+
+.history-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.history-item-header {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #f0f0f0;
+}
+
+.history-item-header strong {
+  font-size: 1.1em;
+  color: #2c3e50;
+}
+
+.history-date {
+  font-size: 0.85em;
+  color: #7f8c8d;
+  margin-left: 10px;
+}
+
+.history-item-body p {
+  margin: 5px 0;
+  font-size: 0.95em;
+}
+
+.history-item-body .outcome-survived {
+  color: #27ae60; /* Green */
+  font-weight: bold;
+}
+
+.history-item-body .outcome-did-not-survive {
+  color: #c0392b; /* Red */
+  font-weight: bold;
+}
+
+.history-item-body details {
+  margin-top: 10px;
+}
+
+.history-item-body details summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: #3498db;
+  outline: none;
+}
+
+.input-details-list {
+  list-style: none;
+  padding-left: 15px;
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.input-details-list li {
+  margin-bottom: 4px;
+}

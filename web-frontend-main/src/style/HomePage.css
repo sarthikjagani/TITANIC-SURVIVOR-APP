@@ -1,0 +1,214 @@
+/* src/style/HomePage.css */
+
+.home-page-container {
+  padding: 15px; /* Base padding for mobile */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.welcome-message {
+  margin-bottom: 20px; /* Adjusted margin */
+  font-size: 1rem; /* Base font size */
+}
+
+.home-page-nav-links { /* Changed class name for clarity */
+  display: flex;
+  flex-direction: column; /* Stack links on mobile */
+  gap: 10px; /* Space between stacked links */
+  margin-bottom: 25px; /* Space after the links block */
+  align-items: stretch; /* Make links take full width available in column */
+}
+
+.home-page-nav-links a {
+  display: block; /* Make links block for full width */
+  text-align: center; /* Center text in links */
+  margin-right: 0; /* Remove right margin when stacked */
+  margin-bottom: 0; /* Remove bottom margin if using gap */
+  text-decoration: none;
+  padding: 10px 15px; /* Adjusted padding */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.home-page-nav-links a:hover {
+  background-color: #e0e0e0;
+  color: #111;
+}
+
+/* --- New Styles for Passenger Factors Explanation Section --- */
+.passenger-factors-section {
+  margin-top: 25px; /* Consistent with other sections */
+  padding: 15px;
+  background-color: #f9f9f9; /* Consistent background */
+  border: 1px solid #eaeaea; /* Consistent border */
+  border-radius: 8px; /* Consistent border-radius */
+  text-align: left;
+}
+
+.passenger-factors-section h2 {
+  font-size: 1.3em; /* Match other section h2 on mobile */
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee; /* Subtle separator */
+  padding-bottom: 8px;
+}
+
+.passenger-factors-section p { /* For the introductory paragraph in this section */
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.factors-list {
+  list-style: none; 
+  padding-left: 0; 
+}
+
+.factors-list li {
+  font-size: 0.9rem; 
+  color: #444; 
+  margin-bottom: 10px; /* Slightly less margin for list items */
+  padding-left: 22px; /* Indent list items for the custom bullet */
+  position: relative; 
+  line-height: 1.5;
+}
+
+.factors-list li::before {
+  content: "›"; /* Custom bullet */
+  position: absolute;
+  left: 0;
+  top: 0px; /* Adjust for vertical alignment with text */
+  color: #007bff; /* Example color for bullets */
+  font-weight: bold;
+  font-size: 1.4em; /* Adjust bullet size */
+  line-height: 1; /* Ensure bullet aligns well */
+}
+
+.factors-list li strong {
+  color: #222; 
+  font-weight: 600;
+}
+/* --- End of New Styles --- */
+
+
+.image-section {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.home-page-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ad-section { /* This is for the Ad on HomePage directly */
+  margin-top: 30px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #fafafa; /* Slightly different background for distinction */
+}
+.ad-section h2, .ad-section h3 { /* Styles for headings within HomePage's ad section */
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+
+/* --- Tablet Styles (screens 768px and wider) --- */
+@media (min-width: 768px) {
+  .home-page-container {
+    padding: 20px; /* Restore padding */
+  }
+
+  .welcome-message {
+    font-size: 1.1rem; /* Slightly larger */
+    margin-bottom: 30px;
+  }
+
+  .home-page-nav-links {
+    flex-direction: row; /* Links side-by-side */
+    justify-content: center; /* Center the group of links */
+    gap: 15px; /* Space between side-by-side links */
+    align-items: center; /* Reset alignment */
+  }
+
+  .home-page-nav-links a {
+    display: inline-block; /* Inline block for side-by-side */
+    text-align: left; /* Reset text align */
+    margin-right: 0; /* Using gap instead */
+    padding: 8px 15px; /* Restore original padding */
+    width: auto; /* Let link size to content */
+    font-size: 1rem;
+  }
+
+  .explanation-section {
+    margin-top: 30px;
+    padding: 20px;
+  }
+  .explanation-section h2 {
+    font-size: 1.5em;
+  }
+
+  /* Responsive styles for new section */
+  .passenger-factors-section {
+    margin-top: 30px;
+    padding: 20px;
+  }
+  .passenger-factors-section h2 {
+    font-size: 1.5em; /* Match other h2 */
+  }
+  .passenger-factors-section p,
+  .factors-list li {
+    font-size: 1rem; /* Increase font size for readability */
+  }
+  .factors-list li {
+    margin-bottom: 12px;
+  }
+
+
+  .image-section {
+    margin-top: 30px;
+  }
+
+  .ad-section {
+    margin-top: 40px;
+    padding: 20px;
+  }
+   .ad-section h2, .ad-section h3 {
+    font-size: 1.4em;
+  }
+}
+
+/* --- Desktop Styles (screens 1024px and wider) --- */
+@media (min-width: 1024px) {
+  .home-page-container {
+    /* padding: 20px 40px; /* Optional: More horizontal padding */
+  }
+  .welcome-message {
+    font-size: 1.2rem;
+  }
+  .home-page-nav-links a {
+     padding: 10px 20px; /* Larger clickable area */
+  }
+
+  /* Responsive styles for new section */
+  .passenger-factors-section h2 {
+    font-size: 1.6em; /* Match other h2 */
+  }
+  .passenger-factors-section p,
+  .factors-list li {
+    font-size: 1.05rem; /* Slightly larger on desktop */
+  }
+
+   .ad-section h2, .ad-section h3 {
+    font-size: 1.5em;
+  }
+}

@@ -1,0 +1,120 @@
+/* src/style/ServicePage.css */
+
+.service-page-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* --- Header --- */
+.service-page-header {
+  margin-bottom: 50px;
+}
+
+.service-page-header h1 {
+  font-size: 2.8em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.service-page-header p {
+  font-size: 1.2em;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- Services Grid Layout --- */
+.services-grid {
+  display: grid;
+  /* Creates 3 columns on desktop, and wraps to 1 on mobile */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Aligns content inside the card vertically */
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.service-card h2 {
+  font-size: 1.6em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+  flex-grow: 1; /* Allows paragraph to take up space, pushing footer content down */
+}
+
+.service-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.service-features-list li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+/* Custom list bullet */
+.service-features-list li::before {
+  content: '✔';
+  color: #27ae60; /* Green checkmark */
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.disclaimer {
+  font-size: 0.85em !important; /* Override other p styles */
+  color: #777 !important;
+  font-style: italic;
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+/* --- Footer --- */
+.service-page-footer {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid #eee;
+}
+
+.service-page-footer h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-info {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #444;
+}

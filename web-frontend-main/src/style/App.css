@@ -1,0 +1,399 @@
+/* src/App.css */
+
+/* --- Main App Container --- */
+.App {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Navigation Header --- */
+nav {
+  background-color: #1a2d40;
+  padding: 10px 15px; /* Reduced padding for mobile */
+  border-bottom: 3px solid #bfa156; /* Slightly thinner border for mobile */
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on small screens */
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Group for main navigation links */
+nav .nav-links-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Allow links to wrap if space is tight */
+  justify-content: center; /* Center links if they wrap to a new line */
+  flex-grow: 1; /* Allow it to take space */
+  margin-bottom: 5px; /* Space if user-info wraps below */
+}
+
+/* Group for user info and logout */
+nav .user-actions-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* Prevent shrinking */
+  margin-bottom: 5px; /* Space if it's the last row */
+}
+
+
+nav a,
+nav span,
+nav button {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 5px 8px; /* Adjusted margin for tighter spacing */
+  font-size: 1em; /* Slightly smaller base for mobile nav items */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover, nav a:focus {
+  color: #bfa156;
+}
+
+nav span { /* User info */
+  font-size: 0.85em;
+  margin-right: 5px;
+}
+
+nav button { /* Logout button */
+  background: none;
+  border: 1px solid #bfa156;
+  color: #bfa156;
+  padding: 4px 8px; /* Reduced padding */
+  margin-left: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.85em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav button:hover {
+  background-color: #bfa156;
+  color: #1a2d40;
+}
+
+/* --- Main Content Area --- */
+main {
+  padding: 20px 15px; /* Reduced padding for mobile */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Start content from top */
+  align-items: center;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* Content wrapper inside main (e.g., for forms on login/register pages) */
+main > .content-wrapper { /* Changed from main > div to a specific class */
+  max-width: 100%; /* Full width on mobile */
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0 5px; /* Minimal padding for the wrapper itself on mobile */
+}
+
+/* --- Headings --- */
+h1 {
+  color: #1a2d40;
+  /* font-family: Georgia, serif; */ /* Line removed or commented out */
+  margin-bottom: 15px;
+  border-bottom: 2px solid #bfa156;
+  padding-bottom: 8px;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+h2 {
+  color: #1a2d40;
+  margin-bottom: 15px;
+  /* font-family: Georgia, serif; */ /* Line removed or commented out */
+  text-align: center;
+  font-size: 1.5em;
+}
+
+/* --- Paragraphs & Links --- */
+p {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+a {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #bfa156;
+}
+
+/* --- Forms --- */
+form {
+  background-color: #f9f9f9;
+  padding: 20px; /* Reduced padding for mobile */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 100%; /* Ensure form takes up width of its container */
+}
+
+form div {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  color: #333;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+input[type="email"],
+input[type="password"] {
+  padding: 10px; /* Adjusted padding */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
+  border-left: 3px solid #bfa156;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #1a2d40;
+  box-shadow: 0 0 5px rgba(26, 45, 64, 0.3);
+}
+
+/* --- Form Buttons (Submit) --- */
+button[type="submit"] {
+  background-color: #1a2d40;
+  color: white;
+  padding: 10px 20px; /* Adjusted padding */
+  border: none;
+  border-radius: 4px;
+  font-size: 1em; /* Adjusted font size */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  border-bottom: 3px solid #0d1620;
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+}
+
+button[type="submit"]:hover {
+  background-color: #2c4a6b;
+}
+
+button[type="submit"]:active {
+  transform: translateY(1px);
+  border-bottom-width: 2px;
+}
+
+/* --- Error Message Styling --- */
+.error-message { /* Using a class is better than attribute selector */
+  color: rgb(220, 53, 69);
+  font-size: 0.85em;
+  margin-top: 5px;
+  font-weight: bold;
+  text-align: left;
+}
+/* Fallback for existing inline style if class cannot be added immediately */
+p[style*="color: rgb(220, 53, 69)"] {
+  font-size: 0.85em;
+  margin-top: 5px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* --- Horizontal Rule --- */
+hr {
+  border: none;
+  border-top: 1px dashed #1a2d40; /* Thinner for mobile */
+  margin: 30px auto; /* Adjusted margin */
+  width: 90%;
+}
+
+/* --- Specific Links (Login/Register toggle in forms) --- */
+form + p { /* Target the paragraph immediately after a form */
+  text-align: center; /* Center the 'Don't have an account? Register' text */
+  margin-top: 15px;
+}
+form + p > a {
+  color: #0056b3;
+  font-weight: bold;
+}
+form + p > a:hover {
+  color: #bfa156;
+}
+
+
+/* --- Tablet Styles --- */
+@media (min-width: 768px) {
+  nav {
+    padding: 15px 25px; /* Restore padding */
+    flex-wrap: nowrap; /* Prevent wrapping on tablet */
+  }
+  nav .nav-links-group {
+    justify-content: flex-start; /* Align links to the start */
+    margin-bottom: 0;
+    flex-grow: 0; /* Don't let it grow excessively if user actions are few */
+  }
+  nav .user-actions-group {
+    margin-bottom: 0;
+  }
+  nav a, nav span, nav button {
+    font-size: 1.1em; /* Restore font size */
+    margin: 0 10px; /* Restore margin */
+  }
+  nav span { font-size: 0.9em; }
+  nav button { padding: 5px 10px; font-size: 0.9em; }
+
+  main {
+    padding: 30px 25px; /* Restore some padding */
+  }
+  main > .content-wrapper {
+    max-width: 600px; /* Increased max-width for content */
+    padding: 0; /* Remove wrapper-specific padding */
+  }
+
+  h1 { font-size: 2.2em; margin-bottom: 20px; padding-bottom: 10px; }
+  h2 { font-size: 1.8em; margin-bottom: 20px; }
+  p { font-size: 1rem; margin-bottom: 15px; }
+  label { font-size: 1rem; margin-bottom: 5px;}
+
+  form { padding: 25px; }
+  form div { margin-bottom: 15px; }
+  input[type="email"], input[type="password"] { padding: 12px; }
+  button[type="submit"] { padding: 12px 25px; font-size: 1.1em; margin-top: 10px;}
+
+  .ad-container,
+  main > .content-wrapper > div[style*="border"] {
+    padding: 20px !important;
+    margin-top: 30px !important;
+  }
+  .ad-container button,
+  main > .content-wrapper > div[style*="border"] button {
+    width: auto; /* Allow button to size to content */
+    padding: 10px 15px;
+    border-bottom-width: 3px;
+  }
+
+  hr { width: 80%; margin: 40px auto; border-top-width: 2px; }
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 1024px) {
+  nav {
+    padding: 15px 40px; /* More padding for desktop */
+  }
+  main {
+    padding: 40px; /* More padding for desktop */
+  }
+  main > .content-wrapper {
+    max-width: 400px; /* Further increase max-width */
+    /* For forms that might be wider, like the calculator,
+       you might have a different wrapper class or style them directly.
+       .calculator-page was styled separately and has its own max-width. */
+  }
+
+  h1 { font-size: 2.5em; }
+  h2 { font-size: 2em; }
+  
+  /* If forms on desktop can be wider but still contained */
+  /* form { max-width: 600px; margin-left: auto; margin-right: auto; } */
+}
+
+
+
+
+/* Enhance user actions group for better alignment */
+.user-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Provides spacing between elements like "Welcome", logout, settings */
+}
+
+.user-actions-group > span {
+  /* Style for "Welcome, userEmail!" text if needed */
+  color: #e0e0e0; /* Example: light color for dark nav */
+}
+
+.logout-button, .settings-button {
+  background-color: #4a5568; /* Example button color */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+}
+
+.logout-button:hover, .settings-button:hover {
+  background-color: #2d3748; /* Darker on hover */
+}
+
+/* Settings Menu Styles */
+.settings-menu {
+  position: relative; /* For positioning the dropdown */
+  display: inline-block; /* Allows it to sit nicely with other elements */
+}
+
+.settings-button {
+  font-size: 1.3em; /* Make gear icon a bit larger */
+  padding: 6px 8px; /* Adjust padding for icon */
+  line-height: 1; /* Ensure icon is centered */
+}
+
+.dropdown-content {
+  display: block; /* Controlled by React state */
+  position: absolute;
+  background-color: #ffffff; /* Light background for dropdown */
+  min-width: 160px; /* Adjust as needed */
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000; /* Ensure it's on top of other content */
+  right: 0; /* Align dropdown to the right of the button */
+  border-radius: 5px; /* Rounded corners */
+  margin-top: 5px; /* Space between button and dropdown */
+  border: 1px solid #ddd; /* Subtle border */
+  overflow: hidden; /* Ensures child link hovers don't exceed border-radius */
+}
+
+.dropdown-content a { /* Styling for NavLink items in dropdown */
+  color: #333; /* Dark text for readability */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.95em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0; /* Light grey hover for links */
+  color: #007bff; /* Highlight color on hover */
+}
+
+/* Style for active NavLink in dropdown */
+.dropdown-content a.active-dropdown-item { /* Different class to avoid conflict with main nav */
+  background-color: #007bff; /* Primary color for active item */
+  color: white;
+  font-weight: bold;
+}
+
+.dropdown-content a.active-dropdown-item:hover {
+  background-color: #0056b3; /* Darker shade for active item on hover */
+}

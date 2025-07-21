@@ -1,0 +1,33 @@
+/* src/index.css */
+
+/* Basic Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  /* Updated font-family to a typewriter stack */
+  font-family: 'Courier New', Courier, monospace; /* Typewriter font stack */
+  background-color: #e0f2f7;
+  color: #1a2d40;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,370 @@
+/* src/style/CalculatorPage.css */
+
+/* --- CSS Variables for Theming --- */
+:root {
+  --page-bg: #f4f7f6;
+  --calculator-bg: #ffffff;
+  
+  --title-text-color: #2c3e50;
+  --label-text-color: #34495e;
+  --input-text-color: #2c3e50;
+  --input-placeholder-color: #95a5a6;
+  
+  --input-bg: #fdfdfd;
+  --input-border-color: #c5ced6;
+
+  --button-submit-bg: #2c3e50;
+  --button-submit-text-color: #ffffff;
+  --button-submit-hover-bg: #3a506b;
+  --button-submit-border-color: #233140;
+
+  --button-reset-bg: #e9edf0;
+  --button-reset-text-color: #34495e;
+  --button-reset-hover-bg: #dce1e6;
+  --button-reset-border-color: #b8c1c9;
+
+  --input-focus-border-color: var(--button-submit-bg);
+  --input-focus-shadow: 0 0 0 0.15rem rgba(44, 62, 80, 0.35);
+
+  --calculator-border-color: var(--button-submit-bg);
+  --calculator-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+}
+
+/* --- Base Styles --- */
+body {
+  background-color: var(--page-bg);
+}
+
+.calculator-page {
+  width: 95%;
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 2px solid var(--calculator-border-color); 
+  border-radius: 10px;
+  background-color: var(--calculator-bg);
+  box-shadow: var(--calculator-shadow);
+  box-sizing: border-box;
+}
+
+.calculator-page h1 {
+  text-align: center;
+  color: var(--title-text-color);
+  margin-bottom: 35px;
+  font-size: 1.9em;
+  font-weight: 600;
+}
+
+.calculator-page input,
+.calculator-page select,
+.calculator-page button,
+.calculator-page label {
+  font-family: inherit;
+}
+
+/* --- Form Grid Layout --- */
+.calculator-form-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); 
+  gap: 22px 18px; 
+}
+
+.form-group {
+  margin-bottom: 0; 
+  padding: 0;
+  border: none; 
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Spanning classes */
+.form-group.col-span-1 { grid-column: span 1; }
+.form-group.col-span-2 { grid-column: span 2; }
+.form-group.col-span-3 { grid-column: span 3; }
+.form-group.col-span-4 { grid-column: span 4; }
+.form-group.col-span-5 { grid-column: span 5; }
+.form-group.col-span-6 { grid-column: span 6; }
+
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--label-text-color);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.form-group input[type="number"],
+.form-group input[type="text"],
+.form-group select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  color: var(--input-text-color);
+  background-color: var(--input-bg);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  height: 42px;
+}
+
+.form-group input::placeholder { color: var(--input-placeholder-color); opacity: 1; }
+.form-group input:-ms-input-placeholder { color: var(--input-placeholder-color); }
+.form-group input::-ms-input-placeholder { color: var(--input-placeholder-color); }
+
+.form-group input[type="number"]:focus,
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+  border-color: var(--input-focus-border-color);
+  outline: none;
+  box-shadow: var(--input-focus-shadow);
+}
+
+/* Fare input with prefix */
+.fare-input-group .input-with-prefix {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  background-color: var(--input-bg);
+  height: 42px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.fare-input-group .input-with-prefix:focus-within {
+  border-color: var(--input-focus-border-color);
+  box-shadow: var(--input-focus-shadow);
+}
+.fare-input-group .input-with-prefix span {
+  padding: 0 12px;
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  line-height: 40px;
+  background-color: #e8ecef;
+  border-right: 1px solid var(--input-border-color);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.fare-input-group .input-with-prefix input[type="number"] {
+  border: none;
+  box-shadow: none;
+  flex-grow: 1;
+  height: 40px;
+  padding: 11px 14px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: transparent;
+}
+.fare-input-group .input-with-prefix input[type="number"]:focus {
+  box-shadow: none;
+}
+
+/* --- Model Selection --- */
+.model-selection-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--label-text-color);
+  font-size: 0.9rem;
+}
+
+/* Container for our new custom dropdown */
+.custom-multiselect-container {
+  position: relative; /* Crucial for positioning the dropdown panel */
+  width: 100%;
+}
+
+/* The button that looks like a select input */
+.multiselect-trigger {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+  background-color: var(--input-bg);
+  font-size: 0.95rem;
+  color: var(--input-text-color);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 42px; /* Match height of other inputs */
+  font-family: inherit; /* Inherit the page font */
+}
+
+.multiselect-trigger:focus-visible {
+  border-color: var(--input-focus-border-color);
+  outline: none;
+  box-shadow: var(--input-focus-shadow);
+}
+
+/* The text inside the button (e.g., "Random Forest, SVM") */
+.multiselect-trigger .selected-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds "..." if text is too long */
+  flex-grow: 1;
+  padding-right: 10px;
+}
+
+/* The little up/down arrow icon */
+.multiselect-trigger .dropdown-arrow {
+  font-size: 0.7em;
+  color: #555;
+}
+
+/* The dropdown panel that appears when you click the button */
+.multiselect-dropdown {
+  position: absolute;
+  top: calc(100% + 2px); /* Position it right below the trigger */
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 10; /* Ensure it appears above other page elements */
+  max-height: 200px; /* Limit height and enable scrolling */
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Styling for each checkbox row inside the dropdown */
+.multiselect-dropdown .checkbox-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.multiselect-dropdown .checkbox-item:hover {
+  background-color: #e9edf0;
+}
+
+.multiselect-dropdown .checkbox-item input[type="checkbox"] {
+  margin-right: 12px;
+  transform: scale(1.1);
+  pointer-events: none; /* The whole div is clickable */
+}
+
+.multiselect-dropdown .checkbox-item label {
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 100%;
+  color: var(--input-text-color);
+}
+
+/* --- Button Group --- */
+.button-group {
+  grid-column: 1 / -1; 
+  margin-top: 20px; 
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+}
+
+.button-group button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  border-style: solid;
+  border-width: 1px;
+  border-bottom-width: 3px;
+  width: 100%;
+}
+
+.button-group button.btn-submit {
+  background-color: var(--button-submit-bg);
+  color: var(--button-submit-text-color);
+  border-color: var(--button-submit-border-color);
+}
+.button-group button.btn-submit:hover {
+  background-color: var(--button-submit-hover-bg);
+}
+
+.button-group button.btn-reset {
+  background-color: var(--button-reset-bg);
+  color: var(--button-reset-text-color);
+  border-color: var(--button-reset-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-group button.btn-reset:hover {
+  background-color: var(--button-reset-hover-bg);
+}
+.button-group button.btn-reset .trash-icon {
+  margin-right: 8px;
+  font-size: 1.1em;
+}
+
+.button-group button:active {
+  transform: translateY(1px);
+  border-bottom-width: 1px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+.button-group button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- Results and Error styling --- */
+.results-section, .error-message-container, .loading-message-container {
+  margin-top: 25px;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: left;
+}
+
+.error-message-container {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  font-weight: 500;
+}
+
+.loading-message-container {
+   text-align:center;
+   color: #555;
+   font-style: italic;
+}
+
+.results-section {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+}
+.results-section h3 {
+  font-size: 1.1em;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--title-text-color);
+  border-bottom: 1px solid #ced4da;
+  padding-bottom: 8px;
+  font-weight: 600;
+}
+.results-section ul { list-style: none; padding: 0; }
+.results-section li { margin-bottom: 8px; font-size: 1em; display: flex; justify-content: space-between; align-items: center; }
+.results-section li strong { color: var(--label-text-color); margin-right: 8px; }
+.results-section li span { font-weight: 600; color: var(--title-text-color); }
+
+
+/* --- Tablet and Desktop Styles --- */
+@media (min-width: 768px) {
+  .calculator-page { padding: 35px; }
+  .calculator-page h1 { font-size: 2em; margin-bottom: 40px; }
+  .button-group { flex-direction: row; justify-content: flex-start; gap: 20px; }
+  .button-group button { width: auto; min-width: 120px; }
+}
+
+@media (min-width: 1024px) {
+  .calculator-page { max-width: 780px; }
+  .calculator-page h1 { font-size: 2.3em; }
+}
